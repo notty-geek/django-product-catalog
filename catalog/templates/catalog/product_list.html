@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product catalog</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { margin: 0; color: #172e2b; background: #fafbf9; font: 1rem/1.5 "Inter", system-ui, sans-serif; }
+        main { max-width: 70rem; margin: auto; padding: 2rem 1rem; }
+        h1, h2, h3, p { margin: 0 0 .5rem; }
+        h1 { margin-bottom: 1.5rem; }
+        .catalog { display: grid; grid-template-columns: minmax(13rem, 16rem) 1fr; gap: 2.5rem; }
+        form { align-self: start; }
+        form > div { margin-bottom: 1rem; }
+        input[type=text], select { display: block; width: 100%; padding: .5rem; font: inherit; }
+        fieldset { border: 0; padding: 0; margin: 0; }
+        legend { padding: 0; margin-bottom: .4rem; }
+        button { padding: .5rem 1rem; background: #22564c; color: white; border: 0; border-radius: .25rem; font: inherit; cursor: pointer; }
+        a { color: #22564c; margin-inline-start: .75rem; }
+        .errorlist { color: #8e2b1b; }
+        .products { list-style: none; padding: 0; margin: 0; }
+        .products > li { border-top: 1px solid #c6d3cb; padding: 1rem 0; }
+        .details { color: #425d55; font-size: .9rem; }
+        @media (max-width: 42rem) { .catalog { grid-template-columns: 1fr; gap: 1.5rem; } }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Product catalog</h1>
+    <div class="catalog">
+        <form method="get" action="{% url 'product-list' %}">
+            {{ form.as_div }}
+            <button type="submit">Apply filters</button>
+            <a href="{% url 'product-list' %}">Clear filters</a>
+        </form>
+        <section aria-labelledby="results-heading">
+            <h2 id="results-heading">Products</h2>
+            {% if form.errors %}
+                <p>Check the highlighted fields and apply your filters again.</p>
+            {% elif products is None %}
+                <p>Filtered results are not available yet. Clear the filters to browse all products.</p>
+            {% else %}
+                <ul class="products">
+                    {% for product in products %}
+                        <li>
+                            <h3>{{ product.name }}</h3>
+                            <p>{{ product.description }}</p>
+                            <p class="details">Category: {{ product.category }}</p>
+                            {% with tags=product.tags.all %}
+                                {% if tags %}<p class="details">Tags: {{ tags|join:", " }}</p>{% endif %}
+                            {% endwith %}
+                        </li>
+                    {% empty %}
+                        <li>No products found.</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
+    </div>
+</main>
+</body>
+</html>

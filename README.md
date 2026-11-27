@@ -29,10 +29,11 @@ Each product requires a name, a description, and one category. Products can shar
 
 To delete a category in use, first reassign its products. Deleting a tag removes it from all associated products and preserves the products themselves.
 
-## Finish the catalog
+## Search and filters
 
-1. Add a view, URL, and HTML form for description search and category and tag filters. Verify each filter individually and all three together.
-2. Before submission, add the catalog page URL here and describe how selecting multiple tags affects the results.
+Open the [product catalog](http://127.0.0.1:8000/) to browse all products. The GET form accepts a description, one category, and any number of tags. Clear filters returns to the full catalog.
+
+The filtering queryset is the remaining implementation step. Until it is connected, submitting a filter displays a pending message. The agreed behavior is to trim the search text and match it as one case-insensitive substring of the description. A product must match the selected category and **every** selected tag. Empty fields impose no restriction. For example, in the sample catalog, searching for `coffee` with the Outdoors category and the Insulated and Stainless steel tags should return only Trail Coffee Flask.
 
 ## AI attribution
 
@@ -41,3 +42,5 @@ OpenAI Codex ran Django's standard project and app generators, registered the em
 The applicant proposed one category per product and multiple tags per product, and approved the uniqueness and deletion rules. OpenAI Codex implemented the models and admin registration, ran Django's migration generator, and added tests for the relationship rules.
 
 OpenAI Codex created the sample records through Django admin, exported them with Django's `dumpdata` command, and verified the fixture against the original catalog.
+
+OpenAI Codex implemented the search form, page view, template, and tests for passing validated inputs to the applicant's queryset integration point.
