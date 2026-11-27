@@ -52,14 +52,12 @@ Search trims the input and matches it as one case-insensitive substring of the d
 
 ## AI attribution
 
-OpenAI Codex ran Django's standard project and app generators, registered the empty catalog app, configured the signing key to come from the environment, added the dependency pin and Git ignore rules, and drafted this setup guide. The starter uses Django's generated SQLite and admin configuration.
+I made the catalog design decisions below and reviewed the resulting code, migrations, tests, sample data, and documentation. OpenAI Codex wrote the implementations listed here and ran the automated checks.
 
-OpenAI Codex wrote the development Makefile and documented its commands.
-
-The applicant proposed one category per product and multiple tags per product, and approved the uniqueness and deletion rules. OpenAI Codex implemented the models and admin registration, ran Django's migration generator, and added tests for the relationship rules.
-
-OpenAI Codex created the sample records through Django admin, exported them with Django's `dumpdata` command, and verified the fixture against the original catalog.
-
-The applicant confirmed the description and tag matching rules. OpenAI Codex implemented the search form, view, template, filtering queryset, and request-level tests for those rules.
-
-OpenAI Codex added the two product indexes approved by the applicant. The index on `name` supports alphabetical browsing, and the index on `(category, name)` supports alphabetical browsing within a category.
+| Area | My proposal or decision | What Codex implemented and I reviewed |
+| --- | --- | --- |
+| Data model | I proposed one category per product and multiple tags per product. I approved protecting categories in use and allowing shared tags to be removed. | Product, Category, and Tag models, uniqueness rules, admin registration, generated migration, and relationship tests. |
+| Search | I chose trimmed, case-insensitive substring matching on descriptions. Selecting two tags must narrow the list to products with both. The category and description restrictions still apply. | Search form, filtering queryset, view, template, and request-level tests for individual and combined filters. |
+| Indexes | I requested indexing and approved the two indexes Codex proposed for alphabetical browsing across the catalog and within a category. | Indexes on `name` and `(category, name)` and their migration. |
+| Sample catalog | I requested entry through Django admin and a fixture reviewers could load on a fresh checkout. | Entry of 5 categories, 10 tags, and 20 products through admin, fixture export with Django’s `dumpdata`, and verification against the original catalog. |
+| Project setup and delivery | I chose SQLite, requested an environment-provided signing key and Make commands, and asked for a feature-branch and PR review workflow. | Django project and app scaffolding, settings, dependency pin, Git ignore rules, Makefile, setup instructions, implementation plan, and handoff notes. |
