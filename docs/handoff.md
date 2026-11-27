@@ -5,8 +5,8 @@
 | Work | Last verified state | Next action |
 | --- | --- | --- |
 | Django starter | Published on `main` at [9a59cd7](https://github.com/notty-geek/django-product-catalog/commit/9a59cd7b0ae1745af03dd99ed7b41b7801778559). The README covers SQLite setup, the signing key, and admin login. | Use the README in the branch being tested. |
-| Models, migration, and admin | [PR #1](https://github.com/notty-geek/django-product-catalog/pull/1) was open against `main` at this checkpoint. The feature branch is `codex/catalog-models`, at [b5c157c](https://github.com/notty-geek/django-product-catalog/commit/b5c157ce44329ebe5b9399ed546ae8bf2fb1328f). | The next reviewer should check the schema and deletion rules against the [implementation plan](implementation-plan.md). Check the live PR for changes or review feedback before continuing. |
-| Sample data and search | The applicant owns admin data entry and the filtering queryset. Both depend on the catalog schema. | After the models are available, the applicant can populate the catalog. Before implementing search, settle the description match and whether multiple selected tags mean any or all. |
+| Models, migration, and admin | [PR #1](https://github.com/notty-geek/django-product-catalog/pull/1) merged into `main` at [60bfc94](https://github.com/notty-geek/django-product-catalog/commit/60bfc9414aaaa84a6a36aa8f4736570296593394). | Use the README to apply the catalog migration before entering sample data. |
+| Sample data and search | The applicant owns admin data entry and the filtering queryset. The catalog schema is available on `main`. | Populate the catalog through admin. Before implementing search, settle the description match and whether multiple selected tags mean any or all. |
 
 **Verification at the models commit.** The initial migration applied to SQLite, Django's system checks passed, and the migration drift check found no changes. Both relationship tests passed. Admin form submissions on a separate in-memory database accepted untagged and multi-tag products and rejected duplicate category and tag names. Those test submissions do not count toward the assignment's sample data.
 
