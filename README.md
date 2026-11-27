@@ -75,3 +75,5 @@ I made the catalog design decisions below and reviewed the resulting code, migra
 | Indexes | I requested indexing and approved the two indexes Codex proposed for alphabetical browsing across the catalog and within a category. | Indexes on `name` and `(category, name)` and their migration. |
 | Sample catalog | I requested entry through Django admin and a fixture reviewers could load on a fresh checkout. | Entry of 5 categories, 10 tags, and 20 products through admin, fixture export with Django’s `dumpdata`, and verification against the original catalog. |
 | Project setup and delivery | I chose SQLite, requested an environment-provided signing key and Make commands, and asked for a feature-branch and PR review workflow. | Django project and app scaffolding, settings, dependency pin, Git ignore rules, Makefile, setup instructions, implementation plan, and handoff notes. |
+
+I requested a comparison of two ways to match every selected tag. Codex implemented the alternative for the comparison, inspected the SQLite plans and documented the decision to keep the grouped count. [SQL, plans and reproduction steps](docs/all-tags-query.md)
