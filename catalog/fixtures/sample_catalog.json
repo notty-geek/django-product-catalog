@@ -1,0 +1,369 @@
+[
+{
+  "model": "catalog.category",
+  "pk": 1,
+  "fields": {
+    "name": "Kitchen"
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 2,
+  "fields": {
+    "name": "Home Office"
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 3,
+  "fields": {
+    "name": "Outdoors"
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 4,
+  "fields": {
+    "name": "Travel"
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 5,
+  "fields": {
+    "name": "Gardening"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 1,
+  "fields": {
+    "name": "Compact"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 2,
+  "fields": {
+    "name": "Lightweight"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 3,
+  "fields": {
+    "name": "Reusable"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 4,
+  "fields": {
+    "name": "Water-resistant"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 5,
+  "fields": {
+    "name": "Insulated"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 6,
+  "fields": {
+    "name": "Foldable"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 7,
+  "fields": {
+    "name": "Adjustable"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 8,
+  "fields": {
+    "name": "Recycled materials"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 9,
+  "fields": {
+    "name": "Stainless steel"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 10,
+  "fields": {
+    "name": "Gift idea"
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 1,
+  "fields": {
+    "name": "Pour-over Coffee Cone",
+    "description": "A stainless steel mesh cone brews coffee directly into a mug without paper filters.",
+    "category": 1,
+    "tags": [
+      1,
+      3,
+      9
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 2,
+  "fields": {
+    "name": "Stoneware Mixing Bowl",
+    "description": "A wide, glazed bowl with a pouring lip for whisking batter and beating eggs.",
+    "category": 1,
+    "tags": []
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 3,
+  "fields": {
+    "name": "Silicone Lunch Pouch",
+    "description": "A reusable food pouch with a flat base and a pinch seal for snacks or sandwiches.",
+    "category": 1,
+    "tags": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 4,
+  "fields": {
+    "name": "Nesting Measuring Cups",
+    "description": "Four stainless steel measuring cups nest together on a ring to fit a shallow drawer.",
+    "category": 1,
+    "tags": [
+      1,
+      9,
+      10
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 5,
+  "fields": {
+    "name": "Folding Laptop Stand",
+    "description": "An aluminum stand folds flat and adjusts to six heights for typing at a desk.",
+    "category": 2,
+    "tags": [
+      6,
+      7
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 6,
+  "fields": {
+    "name": "Recycled Felt Desk Mat",
+    "description": "A soft desk mat cut from recycled felt protects the surface beneath a keyboard.",
+    "category": 2,
+    "tags": [
+      8
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 7,
+  "fields": {
+    "name": "Clip-on Reading Lamp",
+    "description": "An adjustable gooseneck lamp clips to a shelf and directs light onto a notebook.",
+    "category": 2,
+    "tags": [
+      1,
+      7
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 8,
+  "fields": {
+    "name": "Cable Wrap Set",
+    "description": "Reusable silicone wraps keep charging cables coiled in a drawer or travel bag.",
+    "category": 2,
+    "tags": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 9,
+  "fields": {
+    "name": "Trail Coffee Flask",
+    "description": "An insulated stainless steel flask keeps coffee warm on a morning hike.",
+    "category": 3,
+    "tags": [
+      3,
+      5,
+      9
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 10,
+  "fields": {
+    "name": "Folding Camp Stool",
+    "description": "A three-legged fabric stool folds into a narrow shoulder bag for the campsite.",
+    "category": 3,
+    "tags": [
+      2,
+      6
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 11,
+  "fields": {
+    "name": "Pocket Trail Map Case",
+    "description": "A water-resistant clear sleeve keeps a folded trail map readable in light rain.",
+    "category": 3,
+    "tags": [
+      1,
+      4
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 12,
+  "fields": {
+    "name": "Picnic Blanket",
+    "description": "A picnic blanket with a water-resistant underside folds up and closes with a carrying strap.",
+    "category": 3,
+    "tags": [
+      4,
+      6
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 13,
+  "fields": {
+    "name": "Commuter Coffee Mug",
+    "description": "An insulated stainless steel coffee mug has a narrow base for a train or car cup holder.",
+    "category": 4,
+    "tags": [
+      5,
+      9,
+      10
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 14,
+  "fields": {
+    "name": "Packing Cube Set",
+    "description": "Three lightweight zippered cubes made from recycled fabric separate clothing in a suitcase.",
+    "category": 4,
+    "tags": [
+      2,
+      8
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 15,
+  "fields": {
+    "name": "Foldaway Shopping Tote",
+    "description": "A reusable shopping tote folds into its own pocket for a day out.",
+    "category": 4,
+    "tags": [
+      1,
+      3,
+      6
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 16,
+  "fields": {
+    "name": "Luggage Strap",
+    "description": "An adjustable woven strap wraps around a suitcase and fastens with a side-release buckle.",
+    "category": 4,
+    "tags": [
+      2,
+      7
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 17,
+  "fields": {
+    "name": "Hand Trowel",
+    "description": "A stainless steel blade with depth markings helps set bulbs at an even depth.",
+    "category": 5,
+    "tags": [
+      9
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 18,
+  "fields": {
+    "name": "Seedling Pots",
+    "description": "Reusable pots made from recycled plastic fit a windowsill tray for starting herbs.",
+    "category": 5,
+    "tags": [
+      3,
+      8
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 19,
+  "fields": {
+    "name": "Garden Kneeling Pad",
+    "description": "A lightweight foam pad with a water-resistant cover cushions knees beside raised beds.",
+    "category": 5,
+    "tags": [
+      2,
+      4
+    ]
+  }
+},
+{
+  "model": "catalog.product",
+  "pk": 20,
+  "fields": {
+    "name": "Pruning Snips",
+    "description": "Compact spring-loaded snips trim herb stems and spent flowers with stainless steel blades.",
+    "category": 5,
+    "tags": [
+      1,
+      9,
+      10
+    ]
+  }
+}
+]

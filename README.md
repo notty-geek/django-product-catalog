@@ -12,6 +12,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 export DJANGO_SECRET_KEY="$(python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())')"
 python manage.py migrate
+python manage.py loaddata sample_catalog
 python manage.py createsuperuser
 python manage.py runserver
 ```
@@ -19,6 +20,8 @@ python manage.py runserver
 The export sets a random signing key for the current shell. When opening a new shell, activate the virtual environment and set `DJANGO_SECRET_KEY` again. Reuse the same value from your private environment settings to keep existing admin sessions valid across restarts.
 
 Sign in with the superuser account you just created at [Django admin](http://127.0.0.1:8000/admin/). Migrations create `db.sqlite3` in the project root. Git ignores this local database, which also stores the admin account.
+
+On a fresh database, `loaddata sample_catalog` loads 5 categories, 10 tags, and 20 products from the [sample fixture](catalog/fixtures/sample_catalog.json). For example, in admin, open **Products → Trail Coffee Flask** to see its Outdoors category and its Reusable, Insulated, and Stainless steel tags.
 
 ## Catalog models
 
@@ -28,12 +31,13 @@ To delete a category in use, first reassign its products. Deleting a tag removes
 
 ## Finish the catalog
 
-1. Use the admin interface to enter at least 5 categories, 10 tags, and 20 products. Once entered, document how a reviewer can load the same sample records in a fresh checkout.
-2. Add a view, URL, and HTML form for description search and category and tag filters. Verify each filter individually and all three together.
-3. Before submission, add the catalog page URL here and describe how selecting multiple tags affects the results.
+1. Add a view, URL, and HTML form for description search and category and tag filters. Verify each filter individually and all three together.
+2. Before submission, add the catalog page URL here and describe how selecting multiple tags affects the results.
 
 ## AI attribution
 
 OpenAI Codex ran Django's standard project and app generators, registered the empty catalog app, configured the signing key to come from the environment, added the dependency pin and Git ignore rules, and drafted this setup guide. The starter uses Django's generated SQLite and admin configuration.
 
 The applicant proposed one category per product and multiple tags per product, and approved the uniqueness and deletion rules. OpenAI Codex implemented the models and admin registration, ran Django's migration generator, and added tests for the relationship rules.
+
+OpenAI Codex created the sample records through Django admin, exported them with Django's `dumpdata` command, and verified the fixture against the original catalog.
