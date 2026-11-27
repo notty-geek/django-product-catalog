@@ -29,10 +29,11 @@ Each product requires a name, a description, and one category. Products can shar
 
 To delete a category in use, first reassign its products. Deleting a tag removes it from all associated products and preserves the products themselves.
 
-## Finish the catalog
+## Search and filters
 
-1. Add a view, URL, and HTML form for description search and category and tag filters. Verify each filter individually and all three together.
-2. Before submission, add the catalog page URL here and describe how selecting multiple tags affects the results.
+Open the [product catalog](http://127.0.0.1:8000/) to browse all products. The GET form accepts a description, one category, and any number of tags. Clear filters returns to the full catalog.
+
+Search trims the input and matches it as one case-insensitive substring of the description. A product must match the selected category and **every** selected tag. Empty fields impose no restriction. For example, in the sample catalog, searching for `coffee` with the Outdoors category and the Insulated and Stainless steel tags returns only Trail Coffee Flask.
 
 ## AI attribution
 
@@ -41,3 +42,7 @@ OpenAI Codex ran Django's standard project and app generators, registered the em
 The applicant proposed one category per product and multiple tags per product, and approved the uniqueness and deletion rules. OpenAI Codex implemented the models and admin registration, ran Django's migration generator, and added tests for the relationship rules.
 
 OpenAI Codex created the sample records through Django admin, exported them with Django's `dumpdata` command, and verified the fixture against the original catalog.
+
+The applicant confirmed the description and tag matching rules. OpenAI Codex implemented the search form, view, template, filtering queryset, and request-level tests for those rules.
+
+OpenAI Codex added the two product indexes approved by the applicant. The index on `name` supports alphabetical browsing, and the index on `(category, name)` supports alphabetical browsing within a category.

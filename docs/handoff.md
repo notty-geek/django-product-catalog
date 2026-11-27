@@ -7,7 +7,9 @@
 | Django starter | Published on `main` at [9a59cd7](https://github.com/notty-geek/django-product-catalog/commit/9a59cd7b0ae1745af03dd99ed7b41b7801778559). The README covers SQLite setup, the signing key, and admin login. | Use the README in the branch being tested. |
 | Models, migration, and admin | [PR #1](https://github.com/notty-geek/django-product-catalog/pull/1) merged into `main` at [60bfc94](https://github.com/notty-geek/django-product-catalog/commit/60bfc9414aaaa84a6a36aa8f4736570296593394). | Apply the catalog migration before loading the sample records. |
 | Sample data | The fixture contains the 5 categories, 10 tags, and 20 products entered through Django admin. | Follow the [README](../README.md) to load the fixture into a fresh database. |
-| Search | The applicant owns the filtering queryset. | Before implementing search, settle the description match and whether multiple selected tags mean any or all. |
+| Search | [PR #4](https://github.com/notty-geek/django-product-catalog/pull/4) connects the form at `/` to the [filtering queryset](../catalog/queries.py). A blank form displays all products. | Review the queryset and its fixture-based tests for the matching rules below. |
+
+**Queryset contract.** The view passes a trimmed string (possibly empty), a validated category or `None`, and a queryset of selected tags (possibly empty). The active filters apply together. Description matching uses a case-insensitive substring, and each result must have every selected tag. A product appears once even when it matches several tags.
 
 **Verification at the models commit.** The initial migration applied to SQLite, Django's system checks passed, and the migration drift check found no changes. Both relationship tests passed. Admin form submissions on a separate in-memory database accepted untagged and multi-tag products and rejected duplicate category and tag names. Those test submissions do not count toward the assignment's sample data.
 

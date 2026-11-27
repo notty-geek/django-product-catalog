@@ -26,5 +26,11 @@ class Product(models.Model):
     )
     tags = models.ManyToManyField(Tag, blank=True, related_name="products")
 
+    class Meta:
+        indexes = [
+            models.Index(fields=["name"], name="product_name_idx"),
+            models.Index(fields=["category", "name"], name="product_category_name_idx"),
+        ]
+
     def __str__(self):
         return self.name

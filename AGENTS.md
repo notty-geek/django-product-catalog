@@ -6,7 +6,7 @@ This repository is a Django take-home assignment. Start with the user's ticket, 
 
 - Implement the explicit requirements and confirmed decisions. If a material choice is open, explain the proposed change and its tradeoffs and wait for the user's decision. Read-only investigation can continue. Carry out an approved change without seeking the same approval again.
 - Apply that rule to behavior, architecture, dependencies, configuration, infrastructure, permissions, monitoring, and unrelated refactoring. A request for production quality does not grant blanket approval for these changes.
-- Respect the applicant's ownership of the assignment. The applicant enters the sample records through Django admin and owns the filtering queryset. Keep the README attribution accurate about who designed, wrote, and verified each AI-assisted feature.
+- Respect the applicant's ownership of the assignment. The applicant authorized Codex to enter the sample records through Django admin and implement the agreed filtering queryset. Keep the README attribution accurate about who designed, wrote, and verified each AI-assisted feature.
 
 ## Coordinate concurrent work
 
