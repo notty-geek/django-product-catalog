@@ -52,14 +52,16 @@ Search trims the input and matches it as one case-insensitive substring of the d
 
 ## AI attribution
 
+I reviewed the Codex-assisted code, migrations, tests, sample data, and documentation described below. Codex ran the automated checks.
+
 OpenAI Codex ran Django's standard project and app generators, registered the empty catalog app, configured the signing key to come from the environment, added the dependency pin and Git ignore rules, and drafted this setup guide. The starter uses Django's generated SQLite and admin configuration.
 
-OpenAI Codex wrote the development Makefile and documented its commands.
+OpenAI Codex wrote the development Makefile, documented its commands, and drafted the repository's agent instructions, implementation plan, and handoff notes.
 
-The applicant proposed one category per product and multiple tags per product, and approved the uniqueness and deletion rules. OpenAI Codex implemented the models and admin registration, ran Django's migration generator, and added tests for the relationship rules.
+I proposed one category per product and multiple tags per product, and approved the uniqueness and deletion rules. OpenAI Codex implemented the models and admin registration, ran Django's migration generator, and added tests for the relationship rules.
 
 OpenAI Codex created the sample records through Django admin, exported them with Django's `dumpdata` command, and verified the fixture against the original catalog.
 
-The applicant confirmed the description and tag matching rules. OpenAI Codex implemented the search form, view, template, filtering queryset, and request-level tests for those rules.
+I chose case-insensitive substring matching for descriptions and required products to match every selected tag. OpenAI Codex implemented the search form, view, template, filtering queryset, and request-level tests for those rules.
 
-OpenAI Codex added the two product indexes approved by the applicant. The index on `name` supports alphabetical browsing, and the index on `(category, name)` supports alphabetical browsing within a category.
+I approved two indexes for alphabetical browsing, one on `name` for the full catalog and one on `(category, name)` for browsing within a category. OpenAI Codex added both indexes and their migration.
