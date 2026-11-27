@@ -4,10 +4,10 @@ VENV_PYTHON := .venv/bin/python
 MANAGE := $(VENV_PYTHON) manage.py
 
 .DEFAULT_GOAL := help
-.PHONY: help setup run shell createsuperuser makemigrations migrate showmigrations load-sample dump-sample check test verify
+.PHONY: help setup run shell createsuperuser makemigrations migrate showmigrations load-sample dump-sample check test verify e2e
 
 help: ## List the available commands
-	@awk 'BEGIN {FS = ":.*## "} /^[a-z-]+:.*## / {printf "  make %-17s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
+	@awk 'BEGIN {FS = ":.*## "} /^[a-z0-9-]+:.*## / {printf "  make %-17s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
 setup: $(VENV_PYTHON) ## Create the virtual environment and install requirements
 	$(VENV_PYTHON) -m pip install -r requirements.txt
@@ -46,4 +46,7 @@ check: ## Run Django checks and detect missing migrations
 test: ## Run the Django test suite
 	$(MANAGE) test
 
-verify: check test ## Run all checks and tests
+verify: check test ## Run Django checks and tests
+
+e2e: ## Run the Behave scenarios in headless Chromium
+	$(MANAGE) test e2e.runner

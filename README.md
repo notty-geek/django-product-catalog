@@ -38,6 +38,20 @@ Sign in with the superuser account you just created at [Django admin](http://127
 
 On a fresh database, `loaddata sample_catalog` loads 5 categories, 10 tags, and 20 products from the [sample fixture](catalog/fixtures/sample_catalog.json). For example, in admin, open **Products → Trail Coffee Flask** to see its Outdoors category and its Reusable, Insulated, and Stainless steel tags.
 
+## Browser tests
+
+With the virtual environment and `DJANGO_SECRET_KEY` set up as above, install the test dependencies and Playwright's headless Chromium once.
+
+```sh
+.venv/bin/python -m pip install -r requirements-e2e.txt
+.venv/bin/python -m playwright install --only-shell chromium
+make e2e
+```
+
+For subsequent runs, use `make e2e`. Django starts a live server on an available local port and loads the sample fixture into a disposable test database. Each scenario opens a fresh browser session and submits the catalog form. Run `make verify` for the separate Django checks and tests in [catalog/tests.py](catalog/tests.py).
+
+I requested browser coverage of description matching, category selection, and the rule that every selected tag must match. I chose Playwright with Chromium. Codex wrote the [Behave scenarios](e2e/features/catalog_filters.feature), browser steps, test runner, and Make target.
+
 ## Catalog models
 
 Each product requires a name, a description, and one category. Products can share a category and can have any number of tags, including zero. Category names are unique among categories, and tag names are unique among tags.
