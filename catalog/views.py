@@ -14,8 +14,7 @@ def product_list(request):
             .prefetch_related("tags")
             .order_by("name", "pk")
         )
-        if form.has_changed():
-            products = filter_products(products, **form.cleaned_data)
+        products = filter_products(products, **form.cleaned_data)
 
     return render(
         request, "catalog/product_list.html", {"form": form, "products": products}

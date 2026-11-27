@@ -38,8 +38,6 @@
             <h2 id="results-heading">Products</h2>
             {% if form.errors %}
                 <p>Check the highlighted fields and apply your filters again.</p>
-            {% elif products is None %}
-                <p>Filtered results are not available yet. Clear the filters to browse all products.</p>
             {% else %}
                 <ul class="products">
                     {% for product in products %}
