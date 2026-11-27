@@ -5,8 +5,9 @@
 | Work | Last verified state | Next action |
 | --- | --- | --- |
 | Django starter | Published on `main` at [9a59cd7](https://github.com/notty-geek/django-product-catalog/commit/9a59cd7b0ae1745af03dd99ed7b41b7801778559). The README covers SQLite setup, the signing key, and admin login. | Use the README in the branch being tested. |
-| Models, migration, and admin | [PR #1](https://github.com/notty-geek/django-product-catalog/pull/1) merged into `main` at [60bfc94](https://github.com/notty-geek/django-product-catalog/commit/60bfc9414aaaa84a6a36aa8f4736570296593394). | Use the README to apply the catalog migration before entering sample data. |
-| Sample data and search | The applicant owns admin data entry and the filtering queryset. The catalog schema is available on `main`. | Populate the catalog through admin. Before implementing search, settle the description match and whether multiple selected tags mean any or all. |
+| Models, migration, and admin | [PR #1](https://github.com/notty-geek/django-product-catalog/pull/1) merged into `main` at [60bfc94](https://github.com/notty-geek/django-product-catalog/commit/60bfc9414aaaa84a6a36aa8f4736570296593394). | Apply the catalog migration before loading the sample records. |
+| Sample data | The fixture contains the 5 categories, 10 tags, and 20 products entered through Django admin. | Follow the [README](../README.md) to load the fixture into a fresh database. |
+| Search | The applicant owns the filtering queryset. | Before implementing search, settle the description match and whether multiple selected tags mean any or all. |
 
 **Verification at the models commit.** The initial migration applied to SQLite, Django's system checks passed, and the migration drift check found no changes. Both relationship tests passed. Admin form submissions on a separate in-memory database accepted untagged and multi-tag products and rejected duplicate category and tag names. Those test submissions do not count toward the assignment's sample data.
 
